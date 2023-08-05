@@ -1,5 +1,5 @@
 #Environmental disasters
-environ_emdat_ <- read_excel(path = "C:\\Users\\sanchez\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\data\\Environmental\\emdat_public_2021_11_04_query_uid-7PdQaV.xlsx",
+environ_emdat_ <- read_excel(path = "emdat_public_2021_11_04_query_uid-7PdQaV.xlsx",
                             skip=6)
 environ_emdat <- filter(environ_emdat_, Continent %in% c("Africa","Asia"))
 
