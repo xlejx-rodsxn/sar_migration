@@ -1,5 +1,5 @@
 # Conflict indicators ACLED
-acled_df <- read.csv(file="C:\\Users\\sanchez\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\data\\ACLED\\acled_someregions_00_20.csv")
+acled_df <- read.csv(file="acled_someregions_00_20.csv")
 
 #selecting africa
 acled_africa_df <- filter(acled_df, region %in% c('Eastern Africa','Middle Africa','Northern Africa', 'Southern Africa', 'Western Africa'))
