@@ -62,7 +62,7 @@ df_googlesearch_unemployment_lags <- df_googlesearch_unemployment %>%
                  "googlesearch_work_MA","googlesearch_work_LY","googlesearch_work_TN",
                  "googlesearch_work_EG"), funs_(lag_functions))
 
-saveRDS(df_googlesearch_unemployment_lags, file="C:/Users/sanchez/OneDrive - DeZIM-Institut e.V/Dokumente/DEZIM/SAR project/code/df_googlesearch_unemployment_lags.RDS")
+saveRDS(df_googlesearch_unemployment_lags, file="df_googlesearch_unemployment_lags.RDS")
 
 rm(df_googlesearch_unemployment, 
    search_term_employment, search_term_work, search_term_job, 
