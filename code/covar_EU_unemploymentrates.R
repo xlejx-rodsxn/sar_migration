@@ -1,5 +1,5 @@
 #Europe and OECD unemployment rates
-unemp_eu <- read_xlsx(path="C:\\Users\\sanchez\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\data\\Macroeconomics\\unemployment_eu.xlsx")
+unemp_eu <- read_xlsx(path="unemployment_eu.xlsx")
 unemp_eu <- unemp_eu %>% 
   mutate_all(~ na_if(., ':'))
 
