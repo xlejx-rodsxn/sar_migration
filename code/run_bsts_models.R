@@ -7,8 +7,8 @@ library(scales)
 library(imputeTS)
 
 #read file
-df <- readRDS(file="D:\\Postdoc\\DEZIM\\DeZIM\\SAR project\\data\\compiled\\df.RDS")
-df_y_rec <- readRDS(file="D:\\Postdoc\\DEZIM\\DeZIM\\SAR project\\code\\df_y_rec.RDS")
+df <- readRDS(file="df.RDS")
+df_y_rec <- readRDS(file="df_y_rec.RDS")
 
 df <- left_join(df, df_y_rec, by="date")
 
@@ -288,9 +288,9 @@ plot(impact_sarlibya)
 plot(impact_sarlibya, "original")
 plot(impact_sarlibya$model$bsts.model, "coefficients", inc=0.01)
 
-saveRDS(impact_marenostrum, file="D:/Postdoc/DEZIM/DeZIM/SAR project/manuscript/impact_marenostrum.RDS")
-saveRDS(impact_sarngos, file="D:/Postdoc/DEZIM/DeZIM/SAR project/manuscript/impact_sarngos.RDS")
-saveRDS(impact_sarlibya, file="D:/Postdoc/DEZIM/DeZIM/SAR project/manuscript/impact_sarlibya.RDS")
+saveRDS(impact_marenostrum, file="impact_marenostrum.RDS")
+saveRDS(impact_sarngos, file="impact_sarngos.RDS")
+saveRDS(impact_sarlibya, file="impact_sarlibya.RDS")
 
 #Storing model results
 model_df_results_A <- data.frame(Original = impact_marenostrum$series$response,
@@ -330,9 +330,9 @@ model_df_results_B <- data.frame(Original = impact_sarngos$series$response,
                                  Cumulative_effect_upper = impact_sarngos$series$cum.effect.upper)
 model_df_results_B$date <- ymd(row.names(model_df_results_B))
 
-saveRDS(model_df_results_A, file="D:/Postdoc/DEZIM/DeZIM/SAR project/manuscript/model_df_results_A_all.RDS")
-saveRDS(model_df_results_B, file="D:/Postdoc/DEZIM/DeZIM/SAR project/manuscript/model_df_results_B_all.RDS")
-saveRDS(model_df_results_C, file="D:/Postdoc/DEZIM/DeZIM/SAR project/manuscript/model_df_results_C_all.RDS")
+saveRDS(model_df_results_A, file="model_df_results_A_all.RDS")
+saveRDS(model_df_results_B, file="model_df_results_B_all.RDS")
+saveRDS(model_df_results_C, file="model_df_results_C_all.RDS")
 
 #####################################################################
 #####################################################################
