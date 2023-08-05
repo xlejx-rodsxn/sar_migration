@@ -8,9 +8,9 @@ library(rvest)
 toc <- get_eurostat_toc()
 dat <- get_eurostat(id="migr_asyappctzm", time_format = "num")
 
-saveRDS(dat, file = "C:\\Users\\sanchez\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\data\\asylum_eurostat.RDS") 
+saveRDS(dat, file = "asylum_eurostat.RDS") 
 '
-asylum_eurostat <- readRDS(file = "C:\\Users\\sanchez\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\data\\asylum_eurostat.RDS")
+asylum_eurostat <- readRDS(file = "asylum_eurostat.RDS")
 #datl <- label_eurostat(dat)
 
 asylum_eurostat$continent <- countrycode(asylum_eurostat$citizen, origin="iso2c", destination = "continent")
