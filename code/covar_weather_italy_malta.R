@@ -1,7 +1,7 @@
 # Weather data
-#weather_lybia <- readRDS(file = "C:\\Users\\sanchez\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\data\\weather\\weather_lybia.RDS")
-weather_malta <- readRDS(file = "C:\\Users\\sanchez\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\data\\weather\\weather_malta.RDS")
-weather_italy <- readRDS(file = "C:\\Users\\sanchez\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\data\\weather\\weather_italy.RDS")
+#weather_lybia <- readRDS(file = "weather_lybia.RDS")
+weather_malta <- readRDS(file = "weather_malta.RDS")
+weather_italy <- readRDS(file = "weather_italy.RDS")
 
 weather_malta <- dplyr::select(weather_malta, c(1,2,7,11))
 names(weather_malta) <-  c("date", "temperature_malta", "precipitation_malta", "daysstorm_malta")
