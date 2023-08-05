@@ -84,7 +84,7 @@ impact_sarlibya <- CausalImpact(df_min_A,
                                 post.period = post.period_sar_libya,
                                 alpha = 0.05,
                                 model.args = list(nseasons=NULL, dynamic.regression=F, standardize.data=T, max.flips=100, niter=2500))
-saveRDS(impact_sarlibya, file="D:\\Postdoc\\DEZIM\\DeZIM\\SAR project\\manuscript\\impact_sarlibya.RDS")
+saveRDS(impact_sarlibya, file="impact_sarlibya.RDS")
 
 
 # Cross validation 
