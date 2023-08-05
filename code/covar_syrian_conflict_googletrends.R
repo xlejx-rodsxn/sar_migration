@@ -1,5 +1,5 @@
 #syria
-df_syrianconflict <- read.csv(file = "C:\\Users\\sanchez\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\data\\syria_google_trend.csv")
+df_syrianconflict <- read.csv(file = "syria_google_trend.csv")
 df_syrianconflict <- df_syrianconflict %>% 
   mutate(date = ym(date),
          syria_trend_google = as.numeric(ifelse(syria_trend_google == "<1", 0, syria_trend_google)),
