@@ -1,7 +1,7 @@
 # Frontex data
-#frontex_df <- read_excel(path="C:\\Users\\sanchez\\Documents\\DEZIM\\SAR project\\data\\frontex_monthly_detections.xlsx")
-#frontex_df_new <- read_excel(path="C:\\Users\\sanchez\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\data\\Monthly_detections_of_IBC_2021_08_04.xlsx")
-frontex_df_new <- read_excel(path="C:/Users/sanchez/OneDrive - DeZIM-Institut e.V/Dokumente/DEZIM/SAR project/data/MIGRATORY MOVEMENTS/Monthly_detections_of_IBC_20220204.xlsx")
+#frontex_df <- read_excel(path="frontex_monthly_detections.xlsx")
+#frontex_df_new <- read_excel(path="Monthly_detections_of_IBC_2021_08_04.xlsx")
+frontex_df_new <- read_excel(path="Monthly_detections_of_IBC_20220204.xlsx")
 
 #reshape data
 df_frontex_long <- frontex_df_new %>% 
