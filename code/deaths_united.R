@@ -1,5 +1,5 @@
 # UNITED data from list of deaths
-UNITED_df_original <- read_excel(path = "C:\\Users\\sanchez\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\data\\united_data_update.xlsx")
+UNITED_df_original <- read_excel(path = "united_data_update.xlsx")
 
 UNITED_df <- UNITED_df_original %>% 
   dplyr::select(c(`Found dead`, Number, latitude, longitude, `Country of death`, `Place of death`, drowned))
