@@ -12,14 +12,13 @@ library(countrycode)
 library(imputeTS)
 library(readstata13)
 
-setwd("C:\\Users\\sanchez.DEZIM-INSTITUT\\DEZIM\\SAR project\\code")
 
 # INTERVENTIONS
 
 #dates operations and all NGOs active in the CMR
 source("dates_search_and_rescue_EU_NGOS_dates.R")
 
-#saveRDS(df_dates, file="C:/Users/sanchez/OneDrive - DeZIM-Institut e.V/Dokumente/DEZIM/SAR project/follow up projects/UNDERREGISTER DEATHS proj/df_dates.RDS") 
+#saveRDS(df_dates, file="df_dates.RDS") 
 
 ##################### ARRIVALS
 
@@ -72,7 +71,7 @@ source("covar_commodities_prices.R")
 
 # Job search in Arabic in North Africa (NOTE: do not source file, characters in arabic are not read properly and change)
 #source("covar_AFRICA_unemploymentrates.R")
-df_googlesearch_unemployment_lags <- readRDS(file="C:\\Users\\sanchez.DEZIM-INSTITUT\\DEZIM\\SAR project\\code\\df_googlesearch_unemployment_lags.RDS")
+df_googlesearch_unemployment_lags <- readRDS(file="df_googlesearch_unemployment_lags.RDS")
 
 # Changing some variable names before merge
 df_dead_counts_index <- df_dead_counts_index %>% 
@@ -98,7 +97,7 @@ df <- left_join(df, df_acled_africa_df_all_lags, by="date")
 df <- left_join(df, df_commodityprice_lags, by="date")
 df <- left_join(df, df_googlesearch_unemployment_lags, by="date")
 
-saveRDS(df, file="C:\\Users\\sanchez.DEZIM-INSTITUT\\DEZIM\\SAR project\\data\\compiled\\df.RDS")
+saveRDS(df, file="df.RDS")
 
 #After joining the data set, check which covariates have missing values for the starting period and drop those
 
