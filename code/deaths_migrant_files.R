@@ -1,5 +1,5 @@
 # Migrants files
-migrantfiles <- read_excel(path="C:\\Users\\sanchez\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\data\\missingmigrants\\DISCONTINUED ON JUNE 24, 2016 - Events during which someone died trying to reach or stay in Europe.xlsx",
+migrantfiles <- read_excel(path="DISCONTINUED ON JUNE 24, 2016 - Events during which someone died trying to reach or stay in Europe.xlsx",
                            sheet = 2)
 
 migrantfiles_df <- migrantfiles %>% 
