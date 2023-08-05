@@ -1,5 +1,5 @@
 # JRC airflow passengeder data
-airflow_JRC <- read.csv(file="C:\\Users\\sanchez\\OneDrive\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\data\\airflow_JRC.csv")
+airflow_JRC <- read.csv(file="airflow_JRC.csv")
 
 airflow_JRC$orig.continent <- countrycode(airflow_JRC$orig.iso3, origin="iso3c", destination = "continent")
 airflow_JRC$dest.continent <- countrycode(airflow_JRC$dest.iso3, origin="iso3c", destination = "continent")
