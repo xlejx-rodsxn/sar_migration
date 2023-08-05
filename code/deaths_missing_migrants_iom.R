@@ -1,19 +1,19 @@
 # IOM missing migrants project + Pushbacks
-IOM_MMP_pushbacks <- read_excel(path="C:\\Users\\sanchez\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\data\\mediterranean-data(2021-11-03).xlsx")
+IOM_MMP_pushbacks <- read_excel(path="mediterranean-data(2021-11-03).xlsx")
 IOM_MMP_pushbacks <- IOM_MMP_pushbacks %>% 
   mutate(date = ym(paste0(Year,"-",Month)))
 
 # MMP
-mmp_2021 <- read_excel(path="C:\\Users\\sanchez\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\data\\MMP\\MissingMigrants-Global-2022-01-14T10 22 32+0800.xlsx")
-mmp_2020 <- read_excel(path="C:\\Users\\sanchez\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\data\\MMP\\MissingMigrants-Global-2022-01-14T20 23 43+0800.xlsx")
-mmp_2019 <- read_excel(path="C:\\Users\\sanchez\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\data\\MMP\\MissingMigrants-Global-2022-01-14T20 23 13+0800.xlsx")
-mmp_2018 <- read_excel(path="C:\\Users\\sanchez\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\data\\MMP\\MissingMigrants-Global-2022-01-14T18 07 44+0800.xlsx")
-mmp_2017 <- read_excel(path="C:\\Users\\sanchez\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\data\\MMP\\MissingMigrants-Global-2022-01-14T20 22 12+0800.xlsx")
-mmp_2016 <- read_excel(path="C:\\Users\\sanchez\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\data\\MMP\\MissingMigrants-Global-2022-01-14T20 21 50+0800.xlsx")
-mmp_2015 <- read_excel(path="C:\\Users\\sanchez\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\data\\MMP\\MissingMigrants-Global-2022-01-14T11 59 24+0800.xlsx")
+mmp_2021 <- read_excel(path="MissingMigrants-Global-2022-01-14T10 22 32+0800.xlsx")
+mmp_2020 <- read_excel(path="MissingMigrants-Global-2022-01-14T20 23 43+0800.xlsx")
+mmp_2019 <- read_excel(path="MissingMigrants-Global-2022-01-14T20 23 13+0800.xlsx")
+mmp_2018 <- read_excel(path="MissingMigrants-Global-2022-01-14T18 07 44+0800.xlsx")
+mmp_2017 <- read_excel(path="MissingMigrants-Global-2022-01-14T20 22 12+0800.xlsx")
+mmp_2016 <- read_excel(path="MissingMigrants-Global-2022-01-14T20 21 50+0800.xlsx")
+mmp_2015 <- read_excel(path="MissingMigrants-Global-2022-01-14T11 59 24+0800.xlsx")
 mmp_2015 <- mmp_2015 %>% 
   mutate(`Total Number of Dead and Missing` = as.numeric(`Total Number of Dead and Missing`))
-mmp_2014 <- read_excel(path="C:\\Users\\sanchez\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\data\\MMP\\MissingMigrants-Global-2022-01-14T18 53 57+0800.xlsx")
+mmp_2014 <- read_excel(path="MissingMigrants-Global-2022-01-14T18 53 57+0800.xlsx")
 
 mmp_2014_2021 <- bind_rows(filter(mmp_2014, Region == "Mediterranean"),
                            filter(mmp_2015, Region == "Mediterranean"),
@@ -49,7 +49,7 @@ mmp_survivors <- mmp_2014_2021 %>%
 
 #ggplot(mmp_survivors, aes(x=date_month, y=sum_surv)) + geom_line() + facet_grid(~route)
 
-#saveRDS(mmp_survivors, file="C:\\Users\\sanchez\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\follow up projects\\UNDERREGISTER DEATHS proj\\df_mmp_survivors.RDS")
+#saveRDS(mmp_survivors, file="df_mmp_survivors.RDS")
 
 #Fractionalization Index
 mmp_2014_2021 <- mmp_2014_2021 %>% 
@@ -124,7 +124,7 @@ mmp_2014_2021_df_month_wide <- left_join(mmp_2014_2021_df_month_wide, frac_wide,
 
 df_dead_counts_index <- bind_rows(mmp_2014_2021_df_month_wide, df_migrantfiles_df_month_wide)
 
-#saveRDS(dead_counts_index, file="C:/Users/sanchez/OneDrive - DeZIM-Institut e.V/Dokumente/DEZIM/SAR project/follow up projects/UNDERREGISTER DEATHS proj/dead_counts_index.RDS") 
+#saveRDS(dead_counts_index, file="dead_counts_index.RDS") 
 
 
 # MMP+pushbacks
@@ -141,7 +141,7 @@ df_LCG_pushbacks <- IOM_MMP_pushbacks %>%
 df_LCG_pushbacks <- df_LCG_pushbacks %>% 
   mutate(LCG_pushbacks_count = ifelse(LCG_pushbacks_count < 0, LCG_pushbacks_count*(-1), LCG_pushbacks_count))
 
-#saveRDS(LCG_pushbacks, file="C:/Users/sanchez/OneDrive - DeZIM-Institut e.V/Dokumente/DEZIM/SAR project/follow up projects/UNDERREGISTER DEATHS proj/LCG_pushbacks.RDS") 
+#saveRDS(LCG_pushbacks, file="LCG_pushbacks.RDS") 
 #There was a negative value around the Spring 2019 that was recoded to positive
 
 #Tunisia
@@ -155,7 +155,7 @@ rm(MMP_data,IOM_MMP_pushbacks,frac_1,frac_2,frac_wide,loc_1,loc_wide,a,a_t,mmp_2
    mmp_2014_2021_df_month_wide,df_migrantfiles_df_month_wide,
    mmp_survivors)
 
-#saveRDS(TCG_pushbacks, file="C:/Users/sanchez/OneDrive - DeZIM-Institut e.V/Dokumente/DEZIM/SAR project/follow up projects/UNDERREGISTER DEATHS proj/TCG_pushbacks.RDS") 
+#saveRDS(TCG_pushbacks, file="TCG_pushbacks.RDS") 
 
 
 #Turkey
@@ -163,4 +163,4 @@ rm(MMP_data,IOM_MMP_pushbacks,frac_1,frac_2,frac_wide,loc_1,loc_wide,a,a_t,mmp_2
   #filter(Details == "Interceptions by Turkish Coast Guard" & Route == "Eastern Mediterranean") %>% 
   #rename(TCG_pushbacks_count = Count)
 
-#saveRDS(TurkCG_pushbacks, file="C:/Users/sanchez/OneDrive - DeZIM-Institut e.V/Dokumente/DEZIM/SAR project/follow up projects/UNDERREGISTER DEATHS proj/TurkCG_pushbacks.RDS") 
+#saveRDS(TurkCG_pushbacks, file="TurkCG_pushbacks.RDS") 
