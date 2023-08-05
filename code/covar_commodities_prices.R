@@ -1,5 +1,5 @@
 # Commodity prices
-df_imf <- read_xlsx(path = "C:\\Users\\sanchez\\OneDrive\\OneDrive - DeZIM-Institut e.V\\Dokumente\\DEZIM\\SAR project\\data\\IMF\\df_imf.xlsx",
+df_imf <- read_xlsx(path = "df_imf.xlsx",
                     skip=0)
 df_imf <- df_imf[-c(1,2,3),]
 
