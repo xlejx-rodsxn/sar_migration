@@ -1,4 +1,4 @@
-load("D:/Postdoc/DEZIM/DeZIM/SAR project/data/UCDP/ged211-dta/GEDEvent_v21_1.RData")
+load("GEDEvent_v21_1.RData")
 
 ucdp_deaths <- GEDEvent_v21_1 %>%
   mutate(date = ymd(date_start),
