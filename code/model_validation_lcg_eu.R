@@ -11,13 +11,13 @@ library(imputeTS)
 
 #NOTE: sort observations by time
 
+# To validate the model we took and adapted some of the code from these sources.
 #http://sisifospage.tech/2017-10-30-forecasting-bsts.html
 #https://topepo.github.io/caret/data-splitting.html#data-splitting-for-time-series
-# https://en.wikipedia.org/wiki/Mean_absolute_scaled_error
 
 #read file
-df <- readRDS(file="D:\\Postdoc\\DEZIM\\DeZIM\\SAR project\\data\\compiled\\df.RDS")
-df_y_rec <- readRDS(file="D:\\Postdoc\\DEZIM\\DeZIM\\SAR project\\code\\df_y_rec.RDS")
+df <- readRDS(file="df.RDS")
+df_y_rec <- readRDS(file="df_y_rec.RDS")
 
 df <- left_join(df, df_y_rec, by="date")
 
