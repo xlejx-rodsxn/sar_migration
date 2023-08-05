@@ -24,8 +24,8 @@ library(imputeTS)
 # https://en.wikipedia.org/wiki/Mean_absolute_scaled_error
 
 #read file
-df <- readRDS(file="D:\\Postdoc\\DEZIM\\DeZIM\\SAR project\\data\\compiled\\df.RDS")
-df_y_rec <- readRDS(file="D:\\Postdoc\\DEZIM\\DeZIM\\SAR project\\code\\df_y_rec.RDS")
+df <- readRDS(file="df.RDS")
+df_y_rec <- readRDS(file="df_y_rec.RDS")
 
 df <- left_join(df, df_y_rec, by="date")
 
@@ -93,7 +93,7 @@ impact_sarngos <- CausalImpact(df_min_A,
                                post.period = post.period_sar_ngos,
                                alpha = 0.05,
                                model.args = list(nseasons=NULL, dynamic.regression=F, standardize.data=T, max.flips=100, niter=2500))
-saveRDS(impact_sarngos, file="D:\\Postdoc\\DEZIM\\DeZIM\\SAR project\\manuscript\\impact_sarngos.RDS")
+saveRDS(impact_sarngos, file="impact_sarngos.RDS")
 
 # Cross validation 
 horizon = 6
@@ -240,7 +240,7 @@ res_df_covar_ <- cbind(name = c("Local Linear Trend (LLT)",
 table_sarngos <- res_df_covar_ %>% arrange(mean_mase)
 colnames(table_sarngos) <- c("Models","RMSE","MAPE","MASE")
 table_sarngos
-saveRDS(table_sarngos, file="D:/Postdoc/DEZIM/DeZIM/SAR project/manuscript/table_sarngos.RDS")
+saveRDS(table_sarngos, file="table_sarngos.RDS")
 
 # Estimate the causal effect for all models
 
@@ -319,7 +319,7 @@ compare_mod$Models <- c("LLT",
 compare_mod_long_sarngos <- compare_mod %>% 
   pivot_longer(1:113)
 
-saveRDS(compare_mod_long_sarngos, file="D:/Postdoc/DEZIM/DeZIM/SAR project/manuscript/compare_mod_long_sarngos.RDS")
+saveRDS(compare_mod_long_sarngos, file="compare_mod_long_sarngos.RDS")
 
 AcfDist(impact_sarngos$model$posterior.samples)
 qqdist(impact_sarngos$model$posterior.samples)
@@ -334,7 +334,7 @@ effs_sarngos <- bind_rows(data.frame(model = "LLT", impact_sarngos_state.spec_lo
                   data.frame(model = "LL + AR", impact_sarngos_state.spec_combined3$summary)[1,],
                   data.frame(model = "LL + SLT + AR", impact_sarngos_state.spec_combined4$summary)[1,],
                   data.frame(model = "Def.: LL", impact_sarngos$summary)[1,])
-saveRDS(effs_sarngos, file="D:/Postdoc/DEZIM/DeZIM/SAR project/manuscript/effs_sarngos.RDS")
+saveRDS(effs_sarngos, file="effs_sarngos.RDS")
 
 ggplot(effs_sarngos, aes(x=model, y=AbsEffect, ymin=AbsEffect.lower, ymax=AbsEffect.upper)) + 
   geom_point() + 
