@@ -16,8 +16,8 @@ library(imputeTS)
 # https://en.wikipedia.org/wiki/Mean_absolute_scaled_error
 
 #read file
-df <- readRDS(file="D:\\Postdoc\\DEZIM\\DeZIM\\SAR project\\data\\compiled\\df.RDS")
-df_y_rec <- readRDS(file="D:\\Postdoc\\DEZIM\\DeZIM\\SAR project\\code\\df_y_rec.RDS")
+df <- readRDS(file="df.RDS")
+df_y_rec <- readRDS(file="df_y_rec.RDS")
 
 df <- left_join(df, df_y_rec, by="date")
 
@@ -84,7 +84,7 @@ impact_marenostrum <- CausalImpact(df_min_A,
                                    post.period = post.period_mare_nostrum,
                                    alpha = 0.05,
                                    model.args = list(nseasons=NULL, dynamic.regression=F, standardize.data=T, max.flips=100, niter=2500))
-saveRDS(impact_marenostrum, file="D:\\Postdoc\\DEZIM\\DeZIM\\SAR project\\manuscript\\impact_marenostrum.RDS")
+saveRDS(impact_marenostrum, file="impact_marenostrum.RDS")
 
 ###########################################
 ###########################################
@@ -227,7 +227,7 @@ res_df_covar_ <- cbind(name = c("Local Linear Trend (LLT)",
 table_marenostrum <- res_df_covar_ %>% arrange(mean_mase)
 colnames(table_marenostrum) <- c("Models","RMSE","MAPE","MASE")
 table_marenostrum
-saveRDS(table_marenostrum, file="D:/Postdoc/DEZIM/DeZIM/SAR project/manuscript/table_marenostrum.RDS")
+saveRDS(table_marenostrum, file="table_marenostrum.RDS")
 
 # Estimate the causal effect for all models
 
@@ -307,7 +307,7 @@ compare_mod$Models <- c("LLT",
 compare_mod_long_marenostrum <- compare_mod %>% 
   pivot_longer(1:113)
 
-saveRDS(compare_mod_long_marenostrum, file="D:/Postdoc/DEZIM/DeZIM/SAR project/manuscript/compare_mod_long_marenostrum.RDS")
+saveRDS(compare_mod_long_marenostrum, file="compare_mod_long_marenostrum.RDS")
 
 ggplot(compare_mod_long_marenostrum, aes(x=ymd(name), y=value, group=Models, color=Models)) + geom_line() +
   theme_classic() +
@@ -328,7 +328,7 @@ effs_marenostrum <- bind_rows(data.frame(model = "LLT", impact_marenostrum_state
           data.frame(model = "LL + SLT + AR", impact_marenostrum_state.spec_combined4$summary)[1,],
           data.frame(model = "Def.: LL", impact_marenostrum$summary)[1,])
 
-saveRDS(effs_marenostrum, file="D:/Postdoc/DEZIM/DeZIM/SAR project/manuscript/effs_marenostrum.RDS")
+saveRDS(effs_marenostrum, file="effs_marenostrum.RDS")
 
 
 ggplot(effs_marenostrum, aes(x=model, y=AbsEffect, ymin=AbsEffect.lower, ymax=AbsEffect.upper)) + 
